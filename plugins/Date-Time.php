@@ -1,10 +1,7 @@
 <?php
-include "../Access.php";
-include "../index.php";
-/* The Source Bot: @NoMoBot
-Channel News: @Norbert_Team
-Support: @MosiDevBot
-*/
+include "../bot.php";
+include "../config.php";
+
 $date_and_time = json_decode(file_get_contents('http://api.norbert-team.ir/date-time'));
 if(preg_match('/^\/([Dd]ate)/s',$text)){
 	$date_fa = $date_and_time->date_fa;
