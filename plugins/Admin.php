@@ -1,6 +1,6 @@
 <?php
-include "../Access.php";
-include "../index.php";
+include "../bot.php";
+include "../config.php";
 
 
 if(preg_match("/^\/([Pp]anel)/",$text) and in_array($from_id,$ADMIN) ){
