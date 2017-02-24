@@ -1,10 +1,7 @@
 <?php
-include "../Access.php";
-include "../index.php";
-/* The Source Bot: @NoMoBot
-Channel News: @Norbert_Team
-Support: @MosiDevBot
-*/
+include "../bot.php";
+include "../config.php";
+
 if(preg_match('/^\/([Rr]eply) (.*)/s',$text) and $reply){
 	$text = str_replace('/reply ','',$text);
 	$text = str_replace('/Reply ','',$text);
