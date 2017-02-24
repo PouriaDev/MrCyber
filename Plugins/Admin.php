@@ -19,7 +19,7 @@ SendAction($chat_id,'typing');
   ]);
 }
 elseif($text == "↩️منوی اصلی" and in_array($from_id,$ADMIN) ){
-	file_put_contents("Admin/Command.txt","none");
+	file_put_contents("data/Command.txt","none");
 	SendAction($chat_id,'typing');
 	bot('sendmessage',[
     'chat_id'=>$chat_id,
@@ -36,20 +36,20 @@ elseif($text == "↩️منوی اصلی" and in_array($from_id,$ADMIN) ){
 }
 elseif($text == "📊آمار کاربران" and in_array($from_id,$ADMIN) ){
 	SendAction($chat_id,'typing');
-    $user = file_get_contents("Admin/Member.txt");
+    $user = file_get_contents("data/Member.txt");
     $member_id = explode("\n",$user);
     $member_count = count($member_id) -1;
 	SendMessage($chat_id , "📊 آمار کاربران : $member_count" , "html");
 }
 elseif($text == "⭕️لیست سیاه" and in_array($from_id,$ADMIN) ){
 	SendAction($chat_id,'typing');
-    $Block = file_get_contents("Admin/Block-List.txt");
+    $Block = file_get_contents("data/Block-List.txt");
     $Block_id = explode("\n",$Block);
     $Block_count = count($Block_id) -1;
 	SendMessage($chat_id , "⭕️ آمار لیست سیاه : $Block_count" , "html");
 }
 elseif($text == "✴️ارسال پیام همگانی" and in_array($from_id,$ADMIN) ){
-    file_put_contents("Admin/Command.txt","bc");
+    file_put_contents("data/Command.txt","bc");
 	SendAction($chat_id,'typing');
 	bot('sendmessage',[
     'chat_id'=>$chat_id,
@@ -62,7 +62,7 @@ elseif($text == "✴️ارسال پیام همگانی" and in_array($from_id,$
   ]);
 }
 elseif($command == "bc" and in_array($from_id,$ADMIN) ){
-    file_put_contents("Admin/Command.txt","none");
+    file_put_contents("data/Command.txt","none");
 	SendAction($chat_id,'typing');
 	bot('sendmessage',[
     'chat_id'=>$chat_id,
@@ -76,7 +76,7 @@ elseif($command == "bc" and in_array($from_id,$ADMIN) ){
 	  [['text'=>'🚫بلاک'],['text'=>'✅آنبلاک']]
       ],'resize_keyboard'=>true])
   ]);
-	$all_member = fopen( "Admin/Member.txt", "r");
+	$all_member = fopen( "data/Member.txt", "r");
 		while( !feof( $all_member)) {
  			$user = fgets( $all_member);
 			SendMessage($user,$text,"html");
@@ -84,7 +84,7 @@ elseif($command == "bc" and in_array($from_id,$ADMIN) ){
 }
 elseif($text == "⤴️ارسال پلاگین" and in_array($from_id,$ADMIN) ){
 	SendAction($chat_id,'typing');
-    file_put_contents("Admin/Command.txt","sendplug");
+    file_put_contents("data/Command.txt","sendplug");
 	bot('sendmessage',[
     'chat_id'=>$chat_id,
     'text'=>"⤴️ نام پلاگین مورد نظر رو وارد کنید:",
@@ -96,11 +96,11 @@ elseif($text == "⤴️ارسال پلاگین" and in_array($from_id,$ADMIN) ){
   ]);
 }
 elseif($command == "sendplug" and in_array($from_id,$ADMIN) ){
-    file_put_contents("Admin/Command.txt","none");
-	if(file_exists('Plugins/'.$text.'.php')){
+    file_put_contents("data/Command.txt","none");
+	if(file_exists('plugins/'.$text.'.php')){
 		bot('senddocument',[
     'chat_id'=>$chat_id,
-    'document'=>new CURLFILE('Plugins/'.$text.'.php'),
+    'document'=>new CURLFILE('plugins/'.$text.'.php'),
     'reply_markup'=>json_encode([
       'keyboard'=>[
 	  [['text'=>'📊آمار کاربران'],['text'=>'⭕️لیست سیاه']],
@@ -127,7 +127,7 @@ elseif($command == "sendplug" and in_array($from_id,$ADMIN) ){
 }
 elseif($text == "⏺تنظیم متن استارت" and in_array($from_id,$ADMIN) ){
 	SendAction($chat_id,'typing');
-    file_put_contents("Admin/Command.txt","setstart");
+    file_put_contents("data/Command.txt","setstart");
 	bot('sendmessage',[
     'chat_id'=>$chat_id,
     'text'=>"⏺ متن مورد نظر رو وارد کنید:",
@@ -139,8 +139,8 @@ elseif($text == "⏺تنظیم متن استارت" and in_array($from_id,$ADMIN
   ]);
 }
 elseif($command == "setstart" and in_array($from_id,$ADMIN) ){
-    file_put_contents("Admin/Command.txt","none");
-	file_put_contents("Admin/Start.txt",$text);
+    file_put_contents("data/Command.txt","none");
+	file_put_contents("data/Start.txt",$text);
 	SendAction($chat_id,'typing');
 	bot('sendmessage',[
     'chat_id'=>$chat_id,
@@ -156,7 +156,7 @@ elseif($command == "setstart" and in_array($from_id,$ADMIN) ){
   ]);
 }
 elseif($text == "⚠️تنظیم متن راهنما" and in_array($from_id,$ADMIN) ){
-    file_put_contents("Admin/Command.txt","sethelp");
+    file_put_contents("data/Command.txt","sethelp");
 	SendAction($chat_id,'typing');
 	bot('sendmessage',[
     'chat_id'=>$chat_id,
@@ -169,8 +169,8 @@ elseif($text == "⚠️تنظیم متن راهنما" and in_array($from_id,$AD
   ]);
 }
 elseif($command == "sethelp" and in_array($from_id,$ADMIN) ){
-    file_put_contents("Admin/Command.txt","none");
-	file_put_contents("Admin/Help.txt",$text);
+    file_put_contents("data/Command.txt","none");
+	file_put_contents("data/Help.txt",$text);
 	SendAction($chat_id,'typing');
 	bot('sendmessage',[
     'chat_id'=>$chat_id,
@@ -198,14 +198,14 @@ elseif($text == "✅آنبلاک" and in_array($from_id,$ADMIN) ){
 elseif(preg_match("/^\/([Bb]an) (.*)/",$text) and in_array($from_id,$ADMIN) ){
 	SendAction($chat_id,'typing');
 	preg_match("/^\/([Bb]an) (.*)/",$text,$match);
-	file_put_contents("Admin/Block-List.txt",$block."\n".$match[2]);
+	file_put_contents("data/Block-List.txt",$block."\n".$match[2]);
 	SendMessage($chat_id , "فرد مورد نظر بلاک شد." , "html");
 }
 elseif(preg_match("/^\/([Uu]n[Bb]an) (.*)/",$text) and in_array($from_id,$ADMIN) ){
 	SendAction($chat_id,'typing');
 	preg_match("/^\/([Uu]n[Bb]an) (.*)/",$text,$match);
 	$unban = str_replace("\n".$match[2],"",$block);
-	file_put_contents("Admin/Block-List.txt",$unban);
+	file_put_contents("data/Block-List.txt",$unban);
 	SendMessage($chat_id , "فرد مورد نظر آنبلاک شد." , "html");
 }
 ?>
