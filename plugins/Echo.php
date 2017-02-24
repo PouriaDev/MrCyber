@@ -1,10 +1,7 @@
 <?php
-include "../Access.php";
-include "../index.php";
-/* The Source Bot: @NoMoBot
-Channel News: @Norbert_Team
-Support: @MosiDevBot
-*/
+include "../bot.php";
+include "../config.php";
+
 if(preg_match('/^\/([Ee]cho) (.*)/s',$text)){
 	$text = str_replace('/Echo ','',$text);
 	$text = str_replace('/echo ','',$text);
