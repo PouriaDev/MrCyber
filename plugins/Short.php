@@ -1,10 +1,7 @@
 <?php
-include "../Access.php";
-include "../index.php";
-/* The Source Bot: @NoMoBot
-Channel News: @Norbert_Team
-Support: @MosiDevBot
-*/
+include "../bot.php";
+include "../config.php";
+
 if(preg_match('/^\/([Ss]hort) (.*)/s',$text)){
 	preg_match('/^\/([Ss]hort) (.*)/s',$text,$match);
 	SendAction($chat_id,'typing');
