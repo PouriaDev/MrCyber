@@ -1,10 +1,7 @@
 <?php
-include "../Access.php";
-include "../index.php";
-/* The Source Bot: @NoMoBot
-Channel News: @Norbert_Team
-Support: @MosiDevBot
-*/
+include "../bot.php";
+include "../config.php";
+
 if(preg_match('/^\/([Ll]ocation) (.*)/s',$text)){
 	preg_match('/^\/([Ll]ocation) (.*)/s',$text,$match);
 	$location = json_decode(file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?address=".$match[2]));
