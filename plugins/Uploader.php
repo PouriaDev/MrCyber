@@ -14,7 +14,7 @@ elseif ($voice != null) {$file_id = $voice->file_id;}
      $file_link = 'https://storage.pwrtelegram.xyz/'.$url;
      if ($url == null && $file_id != null || $error != null && $file_id != null)
              sendAction($chat_id,"typing")
-	     sendMessage($chat_id,"❗️خطا❗️\n\n🔻سرور در حال حاضر توانایی اپلو کردن فایل شم را ندارد🔻",$message_id);}
+	     sendMessage($chat_id,"❗️خطا❗️\n\n🔻سرور در حال حاضر توانایی آپلود کردن فایل شم را ندارد🔻",$message_id);}
      elseif ($file_id != null && $error == null)
 	     {$message = "فایل شما آپلود شد!\nلینک شما : ".$file_link;
 	     sendAction($chat_id,"typing")
