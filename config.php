@@ -1,9 +1,8 @@
 <?php 
 ob_start();
-##------------------------------##
-$API_KEY = 'توکن ربات';
-$ADMIN = array('142141024','دیگر ادمین ها');
-##------------------------------##
+$API_KEY = 'Token';
+$ADMIN = array('142141024','179980428','339164473');
+
 define('API_KEY',$API_KEY);
 function bot($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
