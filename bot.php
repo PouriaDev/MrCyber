@@ -21,7 +21,7 @@ $start = file_get_contents("data/Start.txt");
 $help = file_get_contents("data/Help.txt");
 $command = file_get_contents("data/Command.txt");
 
-include "bot.php";
+include "config.php";
 include "plugins/Admin.php";
 include "plugins/Qr.php";
 include "plugins/Calculator.php";
