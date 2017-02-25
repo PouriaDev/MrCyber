@@ -25,7 +25,7 @@ include "bot.php";
 include "plugins/Admin.php";
 include "plugins/Qr.php";
 include "plugins/Calculator.php";
-include "plugins/KeepCalm.php";
+include "plugins/Uploader.php";
 include "plugins/Photo.php";
 include "plugins/Echo.php";
 include "plugins/DateTime.php";
