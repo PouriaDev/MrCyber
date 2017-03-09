@@ -1,6 +1,6 @@
 <?php 
 ob_start();
-$API_KEY = 'Token';
+$API_KEY = '153755841:AAF14DbWeKW3zZb7SDjgeqOfDchAgB_AaSw';
 $ADMIN = array('142141024','179980428','339164473');
 
 define('API_KEY',$API_KEY);
